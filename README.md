@@ -10,7 +10,7 @@
 
 
 ### Descrição:
-Esse projeto tem como objetivo criar um sistema para o controle financeiro, apesar de ser direcionado para o uso familiar, também pode sert utilizado indivídualmente.
+Esse projeto tem como objetivo criar um sistema para o controle financeiro, apesar de ser direcionado para o uso familiar, também pode ser utilizado individualmente.
 
 
 ### **Razões para este projeto:**

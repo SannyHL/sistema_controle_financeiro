@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +33,7 @@ public class ControleFinanceiroController {
     public ResponseEntity<ControleFinanceiro> createGastoNavegador(@Valid ControleFinanceiroDto controleFinanceiroDto){
         var controleFinanceiro = new ControleFinanceiro();
         BeanUtils.copyProperties(controleFinanceiroDto, controleFinanceiro);
+        controleFinanceiro.setDataRegistro(LocalDateTime.now(ZoneId.of("UTC")));
         return new ResponseEntity<>(controleFinanceiroService.create(controleFinanceiro), HttpStatus.CREATED);
     }
 
@@ -43,6 +46,7 @@ public class ControleFinanceiroController {
     public ResponseEntity<ControleFinanceiro> createGasto(@RequestBody @Valid ControleFinanceiroDto controleFinanceiroDto){
         var controleFinanceiro = new ControleFinanceiro();
         BeanUtils.copyProperties(controleFinanceiroDto, controleFinanceiro);
+        controleFinanceiro.setDataRegistro(LocalDateTime.now(ZoneId.of("UTC")));
         return new ResponseEntity<>(controleFinanceiroService.create(controleFinanceiro), HttpStatus.CREATED);
     }
 
@@ -73,6 +77,7 @@ public class ControleFinanceiroController {
         if (controleFinanceiroOptional.isPresent()){
             var controleFinanceiro = new ControleFinanceiro();
             BeanUtils.copyProperties(controleFinanceiroDto, controleFinanceiro);
+            controleFinanceiro.setDataRegistro(controleFinanceiroOptional.get().getDataRegistro());
             return new ResponseEntity<>(controleFinanceiroService.create(controleFinanceiro), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

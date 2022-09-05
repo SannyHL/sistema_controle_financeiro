@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -29,11 +30,11 @@ public class GrupoPessoasController {
     public ResponseEntity<GrupoPessoas> createPessoaNavegador(@Valid GrupoPessoasDto grupoPessoasDto){
         var grupoPessoas = new GrupoPessoas();
         BeanUtils.copyProperties(grupoPessoasDto, grupoPessoas);
-        return new ResponseEntity<GrupoPessoas>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
+        return new ResponseEntity<>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
     }
 
     @GetMapping("/")
-    public ResponseEntity<GrupoPessoas> getAll(){
+    public ResponseEntity<List<GrupoPessoas>> getAll(){
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -41,7 +42,7 @@ public class GrupoPessoasController {
     public ResponseEntity<GrupoPessoas> createPessoa(@RequestBody @Valid GrupoPessoasDto grupoPessoasDto){
         var grupoPessoas = new GrupoPessoas();
         BeanUtils.copyProperties(grupoPessoasDto, grupoPessoas);
-        return new ResponseEntity<GrupoPessoas>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
+        return new ResponseEntity<>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
@@ -71,7 +72,7 @@ public class GrupoPessoasController {
         if (grupoPessoasOptional.isPresent()){
             var grupoPessoas = new GrupoPessoas();
             BeanUtils.copyProperties(grupoPessoasDto, grupoPessoas);
-            return new ResponseEntity<GrupoPessoas>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
+            return new ResponseEntity<>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

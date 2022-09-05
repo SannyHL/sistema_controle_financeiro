@@ -1,5 +1,7 @@
 package com.orcamento.controle_financeiro.dto;
 
+import com.orcamento.controle_financeiro.model.GrupoPessoas;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -17,6 +19,17 @@ public class ControleFinanceiroDto {
     public String tipoPagamento;
     @NotBlank
     public String valorPago;
+
+    @NotBlank
+    private GrupoPessoas id;
+
+    public GrupoPessoas getId() {
+        return id;
+    }
+
+    public void setId(GrupoPessoas id) {
+        this.id = id;
+    }
 
     public Date getDataGasto() {
         return dataGasto;

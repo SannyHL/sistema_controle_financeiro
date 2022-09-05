@@ -1,9 +1,7 @@
 package com.orcamento.controle_financeiro.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -80,5 +78,17 @@ public class ControleFinanceiro {
 
     public void setDataRegistro(LocalDateTime dataRegistro) {
         this.dataRegistro = dataRegistro;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "pessoa_id")
+    private GrupoPessoas id;
+
+    public GrupoPessoas getId() {
+        return id;
+    }
+
+    public void setId(GrupoPessoas id) {
+        this.id = id;
     }
 }

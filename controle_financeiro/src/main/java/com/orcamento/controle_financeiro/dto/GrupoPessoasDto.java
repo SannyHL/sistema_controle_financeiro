@@ -4,8 +4,8 @@ import javax.validation.constraints.NotBlank;
 
 public class GrupoPessoasDto {
 
-    @NotBlank
-    public Integer id;
+   
+    public String id;
     @NotBlank
     public String nome;
 
@@ -17,11 +17,11 @@ public class GrupoPessoasDto {
 
     public String orcamentoEspecial;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

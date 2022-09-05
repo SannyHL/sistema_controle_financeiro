@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class ControleFinanceiroDto {
 
-    @NotBlank
+    
     public Date dataGasto;
     @NotBlank
     public String tipoDeGasto;
@@ -20,7 +20,6 @@ public class ControleFinanceiroDto {
     @NotBlank
     public String valorPago;
 
-    @NotBlank
     private GrupoPessoas id;
 
     public GrupoPessoas getId() {

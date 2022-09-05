@@ -108,13 +108,15 @@
             </section>
         </header>
         <main>
-            <input type="id" class="id" name="id" required placeholder="Numero de identificação">
-            <input type="nome" class="nome" name="nome" required placeholder="Nome">
-            <input type="orcamentoMensal" class="orcamentoMensal" name="orcamentoMensal"  placeholder="Valor orçamento mensal">
-            <input type="orcamentoSemanal" class="orcamentoSemanal" name="orcamentoSemanal" placeholder="Valor orçamento semanal">
-            <input type="orcamentoDiario" class="orcamentoDiario" name="orcamentoDiario" placeholder="Valor orçamento diario">
-            <input type="orcamentoEspecial" class="orcamentoEspecial" name="orcamentoEspecial" placeholder="Viagens/acontecimentos especiais">
-            <button type="submit" checked class="enviar">Cadastrar pessoa ao grupo</button>
+            <form method="POST" action="/pessoas/cadastro" class="entradas">
+                <input type="id" class="id" name="id" required placeholder="Numero de identificação">
+                <input type="nome" class="nome" name="nome" required placeholder="Nome">
+                <input type="orcamentoMensal" class="orcamentoMensal" name="orcamentoMensal"  placeholder="Valor orçamento mensal">
+                <input type="orcamentoSemanal" class="orcamentoSemanal" name="orcamentoSemanal" placeholder="Valor orçamento semanal">
+                <input type="orcamentoDiario" class="orcamentoDiario" name="orcamentoDiario" placeholder="Valor orçamento diario">
+                <input type="orcamentoEspecial" class="orcamentoEspecial" name="orcamentoEspecial" placeholder="Viagens/acontecimentos especiais">
+                <button type="submit" checked class="enviar">Cadastrar pessoa ao grupo</button>
+            </form>
         </main>
         <footer>
             <p>Criado por Sanny Helen Lima</p>

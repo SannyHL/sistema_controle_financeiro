@@ -108,13 +108,16 @@
             </section>
         </header>
         <main>
-            <input type="dataGasto" class="dataGasto" name="dataGasto" required placeholder="Data do gasto">
-            <input type="tipoDeGasto" class="tipoDeGasto" name="tipoDeGasto" required placeholder="Tipo do gasto">
-            <input type="localGasto" class="localGasto" name="localGasto"  placeholder="Local">
-            <input type="descricao" class="descricao" name="descricao" placeholder="Detalhamento do gasto">
-            <input type="tipoPagamento" class="tipoPagamento" name="tipoPagamento" placeholder="Tipo do pagamento realizado">
-            <input type="valorPago" class="valorPago" name="valorPago" placeholder="Valor do pagamento realizado">
-            <button type="submit" checked class="enviar">Cadastrar pessoa ao grupo</button>
+            <form method="POST" action="/financeiro/cadastro" class="entradas">
+                <input type="id" class="id" name="id" required placeholder="Id da pessoa">
+                <input type="dataGasto" class="dataGasto" name="dataGasto" required placeholder="Data do gasto">
+                <input type="tipoDeGasto" class="tipoDeGasto" name="tipoDeGasto" required placeholder="Tipo do gasto">
+                <input type="localGasto" class="localGasto" name="localGasto"  placeholder="Local">
+                <input type="descricao" class="descricao" name="descricao" placeholder="Detalhamento do gasto">
+                <input type="tipoPagamento" class="tipoPagamento" name="tipoPagamento" placeholder="Tipo do pagamento realizado">
+                <input type="valorPago" class="valorPago" name="valorPago" placeholder="Valor do pagamento realizado">
+                <button type="submit" checked class="enviar">Cadastrar gasto</button>
+            </form>
         </main>
         <footer>
             <p>Criado por Sanny Helen Lima</p>

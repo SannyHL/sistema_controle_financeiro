@@ -4,12 +4,15 @@ package com.orcamento.controle_financeiro.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tbpessoas")
 public class GrupoPessoas {
 
     @Id
-    public Integer id;
+    @Column(nullable = false)
+    public String id;
 
     @Column(nullable = false)
     public String nome;
@@ -26,11 +29,11 @@ public class GrupoPessoas {
     @Column
     public String orcamentoEspecial;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -6,9 +6,11 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
+@Table(name = "tb_financas")
 public class ControleFinanceiro {
 
     @Id
+    @Column(nullable = false)
     public Date dataGasto;
 
     @Column(nullable = false, length = 50)
@@ -81,7 +83,7 @@ public class ControleFinanceiro {
     }
 
     @OneToOne
-    @JoinColumn(name = "pessoa_id")
+    @JoinColumn(name = "tbpessoas_id")
     private GrupoPessoas id;
 
     public GrupoPessoas getId() {

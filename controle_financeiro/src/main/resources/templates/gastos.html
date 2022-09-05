@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro Gastos</title>
+        <style>
+            *{
+            margin: 0;
+            padding: 0;
+            }
+            
+            body {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            }
+            header{
+                background: rgb(59, 17, 17);
+                width: 100%;
+                height: 100px;
+                text-align: center;
+
+            }
+            .cabecario{
+
+                padding: 6%;
+                font-size: 22px;
+                color: white;
+                text-decoration: underline dashed;
+                
+                
+            }
+            main{
+                text-align: center;
+                padding: 10% 0;
+                width: 100%;
+                height: 150%;
+                background: rgb(59, 17, 17);
+                
+            }
+            input{
+                display: inline;
+                flex-wrap: wrap;
+                margin-top: 2%;
+                height: 20%;
+                width: 40%;
+                border: 2px solid rgb(82, 20, 20);
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 17px;
+                background: rgb(59, 17, 17);
+                color: white;
+
+            }
+            
+            button{
+                display: block;
+                margin: 10% auto;
+
+            }
+            .enviar{
+                height: 50px;
+                width: 50%;
+                border: 4px dashed rgb(82, 20, 20);
+                border-radius: 10px;
+                padding: 0%;
+                background: rgb(59, 17, 17);
+                font-size: 17px;
+                color: white;
+                font-weight: bold;
+            }
+
+            .enviar:hover{
+                height: 50px;
+                width: 50%;
+                color: rgb(59, 17, 17);
+                font-size: 19px;
+                background: white;
+                transition: 2s;
+                font-weight: bold;
+            }
+
+            input::placeholder{
+                
+                color: white;
+                font-size: 17px;
+            }
+
+            footer{
+                width: 100%;
+                height: 30%;
+                background: rgb(59, 17, 17);
+                text-align: center;
+            }
+            footer p{
+                padding: 20%;
+                padding-bottom: 0%;
+                font-size: 12px;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <section class="cabecario">
+                <h1>Cadastro de pessoas ao grupo:</h1>
+            </section>
+        </header>
+        <main>
+            <input type="dataGasto" class="dataGasto" name="dataGasto" required placeholder="Data do gasto">
+            <input type="tipoDeGasto" class="tipoDeGasto" name="tipoDeGasto" required placeholder="Tipo do gasto">
+            <input type="localGasto" class="localGasto" name="localGasto"  placeholder="Local">
+            <input type="descricao" class="descricao" name="descricao" placeholder="Detalhamento do gasto">
+            <input type="tipoPagamento" class="tipoPagamento" name="tipoPagamento" placeholder="Tipo do pagamento realizado">
+            <input type="valorPago" class="valorPago" name="valorPago" placeholder="Valor do pagamento realizado">
+            <button type="submit" checked class="enviar">Cadastrar pessoa ao grupo</button>
+        </main>
+        <footer>
+            <p>Criado por Sanny Helen Lima</p>
+        </footer>
+    </body>
+</html>

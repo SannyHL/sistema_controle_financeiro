@@ -39,7 +39,7 @@ public class ControleFinanceiroController {
 
     @GetMapping("/")
     public ResponseEntity<List<ControleFinanceiro>> getAll(){
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(controleFinanceiroService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping("/")
@@ -61,7 +61,7 @@ public class ControleFinanceiroController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{dataGasto}")
     public ResponseEntity<ControleFinanceiro> getId(@PathVariable(value = "dataGasto") Date dataGasto){
         Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(dataGasto);
         if (controleFinanceiroOptional.isPresent()){

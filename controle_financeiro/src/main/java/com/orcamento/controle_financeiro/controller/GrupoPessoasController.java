@@ -35,7 +35,7 @@ public class GrupoPessoasController {
 
     @GetMapping("/")
     public ResponseEntity<List<GrupoPessoas>> getAll(){
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>( grupoPessoasService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping("/")
@@ -46,7 +46,7 @@ public class GrupoPessoasController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<GrupoPessoas> deletePessoa(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<GrupoPessoas> deletePessoa(@PathVariable(value = "id") String id){
         Optional<GrupoPessoas> grupoPessoasOptional = grupoPessoasService.findId(id);
         if (grupoPessoasOptional.isPresent()){
             grupoPessoasService.delete(grupoPessoasOptional.get());
@@ -57,7 +57,7 @@ public class GrupoPessoasController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GrupoPessoas> getId(@PathVariable(value = "id") Integer id){
+    public ResponseEntity<GrupoPessoas> getId(@PathVariable(value = "id") String id){
         Optional<GrupoPessoas> grupoPessoasOptional = grupoPessoasService.findId(id);
         if (grupoPessoasOptional.isPresent()){
             return new ResponseEntity<>(grupoPessoasOptional.get(), HttpStatus.OK);
@@ -67,11 +67,12 @@ public class GrupoPessoasController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<GrupoPessoas> putPessoas(@PathVariable(value = "id") Integer id, @RequestBody @Valid GrupoPessoasDto grupoPessoasDto){
+    public ResponseEntity<GrupoPessoas> putPessoas(@PathVariable(value = "id") String id, @RequestBody @Valid GrupoPessoasDto grupoPessoasDto){
         Optional<GrupoPessoas> grupoPessoasOptional = grupoPessoasService.findId(id);
         if (grupoPessoasOptional.isPresent()){
             var grupoPessoas = new GrupoPessoas();
             BeanUtils.copyProperties(grupoPessoasDto, grupoPessoas);
+            grupoPessoas.setId(grupoPessoasOptional.get().getId());
             return new ResponseEntity<>(grupoPessoasService.create(grupoPessoas), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

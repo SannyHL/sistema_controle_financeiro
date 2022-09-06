@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,8 +50,8 @@ public class ControleFinanceiroController {
     }
 
     @DeleteMapping("/{dataGasto}")
-    public ResponseEntity<ControleFinanceiro> deleteGasto(@PathVariable(value = "dataGasto") Date dataGasto){
-        Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(dataGasto);
+    public ResponseEntity<ControleFinanceiro> deleteGasto(@PathVariable(value = "dataGasto") Integer numeroIdentificacao){
+        Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(numeroIdentificacao);
         if (controleFinanceiroOptional.isPresent()){
             controleFinanceiroService.delete(controleFinanceiroOptional.get());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -62,8 +61,8 @@ public class ControleFinanceiroController {
     }
 
     @GetMapping("/{dataGasto}")
-    public ResponseEntity<ControleFinanceiro> getId(@PathVariable(value = "dataGasto") Date dataGasto){
-        Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(dataGasto);
+    public ResponseEntity<ControleFinanceiro> getId(@PathVariable(value = "dataGasto") Integer numeroIdentificacao){
+        Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(numeroIdentificacao);
         if (controleFinanceiroOptional.isPresent()){
             return new ResponseEntity<>(controleFinanceiroOptional.get(), HttpStatus.OK);
         } else {
@@ -72,8 +71,8 @@ public class ControleFinanceiroController {
     }
 
     @PutMapping("/{dataGasto}")
-    public ResponseEntity<ControleFinanceiro> putGasto(@PathVariable(value = "dataGasto") Date dataGasto, @RequestBody @Valid ControleFinanceiroDto controleFinanceiroDto){
-        Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(dataGasto);
+    public ResponseEntity<ControleFinanceiro> putGasto(@PathVariable(value = "dataGasto") Integer numeroIdentificacao, @RequestBody @Valid ControleFinanceiroDto controleFinanceiroDto){
+        Optional<ControleFinanceiro> controleFinanceiroOptional = controleFinanceiroService.findId(numeroIdentificacao);
         if (controleFinanceiroOptional.isPresent()){
             var controleFinanceiro = new ControleFinanceiro();
             BeanUtils.copyProperties(controleFinanceiroDto, controleFinanceiro);

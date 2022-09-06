@@ -3,12 +3,11 @@ package com.orcamento.controle_financeiro.dto;
 import com.orcamento.controle_financeiro.model.GrupoPessoas;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 public class ControleFinanceiroDto {
 
     
-    public Date dataGasto;
+    public String dataGasto;
     @NotBlank
     public String tipoDeGasto;
     @NotBlank
@@ -30,11 +29,11 @@ public class ControleFinanceiroDto {
         this.id = id;
     }
 
-    public Date getDataGasto() {
+    public String getDataGasto() {
         return dataGasto;
     }
 
-    public void setDataGasto(Date dataGasto) {
+    public void setDataGasto(String dataGasto) {
         this.dataGasto = dataGasto;
     }
 

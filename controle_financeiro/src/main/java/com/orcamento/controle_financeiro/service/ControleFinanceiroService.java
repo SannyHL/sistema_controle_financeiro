@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +20,8 @@ public class ControleFinanceiroService {
         return controleFinanceiroRepo.save(controleFinanceiro);
     }
 
-    public Optional<ControleFinanceiro> findId(Date dataGasto) {
-        return controleFinanceiroRepo.findById(dataGasto);
+    public Optional<ControleFinanceiro> findId(Integer numeroIdentificacao) {
+        return controleFinanceiroRepo.findById(numeroIdentificacao);
     }
     @Transactional
     public void delete(ControleFinanceiro controleFinanceiro) {

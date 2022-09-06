@@ -3,16 +3,18 @@ package com.orcamento.controle_financeiro.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "tb_financas")
 public class ControleFinanceiro {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false)
-    public Date dataGasto;
+    public Integer numeroIdentificacao;
 
+    @Column(nullable = false)
+    public String dataGasto;
     @Column(nullable = false, length = 50)
     public String tipoDeGasto;
     @Column(nullable = false, length = 50)
@@ -26,11 +28,19 @@ public class ControleFinanceiro {
     @Column
     public LocalDateTime dataRegistro;
 
-    public Date getDataGasto() {
+    public Integer getNumeroIdentificacao() {
+        return numeroIdentificacao;
+    }
+
+    public void setNumeroIdentificacao(Integer numeroIdentificacao) {
+        this.numeroIdentificacao = numeroIdentificacao;
+    }
+
+    public String getDataGasto() {
         return dataGasto;
     }
 
-    public void setDataGasto(Date dataGasto) {
+    public void setDataGasto(String dataGasto) {
         this.dataGasto = dataGasto;
     }
 

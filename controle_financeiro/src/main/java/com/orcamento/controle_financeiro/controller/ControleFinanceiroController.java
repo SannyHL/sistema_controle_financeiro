@@ -77,6 +77,7 @@ public class ControleFinanceiroController {
             var controleFinanceiro = new ControleFinanceiro();
             BeanUtils.copyProperties(controleFinanceiroDto, controleFinanceiro);
             controleFinanceiro.setDataRegistro(controleFinanceiroOptional.get().getDataRegistro());
+            controleFinanceiro.setNumeroIdentificacao(controleFinanceiroOptional.get().getNumeroIdentificacao());
             return new ResponseEntity<>(controleFinanceiroService.create(controleFinanceiro), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
